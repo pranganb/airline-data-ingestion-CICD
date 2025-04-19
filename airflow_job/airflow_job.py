@@ -12,7 +12,7 @@ default_args = {
     'depends_on_past': False,
     'retries' : 1,
     'retry_delay' : timedelta(minutes = 5),
-    'start_date': datetime(2025, 4, 18)
+    'start_date': datetime(2025, 4, 20)
 }
 
 # Define DAG
@@ -43,7 +43,7 @@ with DAG(
     file_sensor = GCSObjectExistenceSensor(
         task_id = "check_file_arrival",
         bucket = gcs_bucket,
-        object = f"mybucket-airflow/airline_data/source-{env}/flight_booking.csv",
+        object = f"airline_data/source-{env}/flight_booking.csv",
         google_cloud_conn_id = "google_cloud_default",
         timeout = 300,
         poke_interval = 30, #time between checks
