@@ -107,7 +107,7 @@ def main(env, bq_project, bq_dataset, transformed_table, route_insights_table, o
 
 if __name__ == "__main__":
     # Parse command-line arguments
-    parser = argparse.ArgumentParse(description = "Process flight booking data and write to BigQuery") 
+    parser = argparse.ArgumentParser(description = "Process flight booking data and write to BigQuery") 
     parser.add_argument("--env", required=True, help = "Environment (e.g., dev, prod)")
     parser.add_argument("--bq_project", required=True, help="BigQuery project ID")
     parser.add_argument("--bq_dataset", required=True, help="BigQuery dataset name")
