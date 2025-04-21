@@ -12,7 +12,7 @@ default_args = {
     'depends_on_past': False,
     'retries' : 1,
     'retry_delay' : timedelta(minutes = 5),
-    'start_date': datetime(2025, 4, 21)
+    'start_date': datetime(2025, 4, 21),
 }
 
 # Define DAG
@@ -84,7 +84,7 @@ with DAG(
         batch_id = batch_id,
         project_id = "warm-tome-457114-a0",
         region = "us-central1",
-        gcp_conn_id = "google_cloud_default",
+        gcp_conn_id = "google_cloud_default"
     )
 
     # Task Dependencies
