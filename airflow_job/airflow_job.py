@@ -12,7 +12,7 @@ default_args = {
     'depends_on_past': False,
     'retries' : 1,
     'retry_delay' : timedelta(minutes = 5),
-    'start_date': datetime(2025, 4, 20)
+    'start_date': datetime(2025, 4, 21)
 }
 
 # Define DAG
@@ -20,7 +20,7 @@ with DAG(
     dag_id = "flight_booking_dataproc_bq_dag",
     default_args = default_args,
     schedule_interval = None,
-    catchup = False
+    catchup = False,
 ) as dag:
     
     # Fetch environment variables
@@ -47,7 +47,7 @@ with DAG(
         google_cloud_conn_id = "google_cloud_default",
         timeout = 300,
         poke_interval = 30, #time between checks
-        mode = "poke",  #Blocking mode
+        mode = "poke"  #Blocking mode
     )
 
 
@@ -58,7 +58,7 @@ with DAG(
             "python_file_uris": [], # Python WHL files
             "jar_file_uris": [], #JAR files
             "args": [
-                f"--env = {env}",
+                f"--env={env}",
                 f"--bq_project={bq_project}",
                 f"--bq_dataset={bq_dataset}",
                 f"--transformed_table={transformed_table}",

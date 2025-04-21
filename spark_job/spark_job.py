@@ -4,10 +4,7 @@ from pyspark.sql.functions import col, count, avg, when, lit, expr
 import logging
 import sys
 
-
-
 #Initialise Logging
-
 logging.basicConfig(
     level = logging.INFO,
     format = "%(asctime)s - %(levelname)s - %(message)s"
