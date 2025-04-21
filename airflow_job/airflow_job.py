@@ -84,7 +84,7 @@ with DAG(
         batch_id = batch_id,
         project_id = "warm-tome-457114-a0",
         region = "us-central1",
-        gcp_conn_id = "google_cloud_default"
+        gcp_conn_id = "google_cloud_default",
     )
 
     # Task Dependencies
